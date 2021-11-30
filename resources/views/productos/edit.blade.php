@@ -16,22 +16,22 @@
 
              <div class="form-group">
                 <label for="title">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $producto[0] }}">
+                <input type="text" name="nombre" id="nombre" class="form-control" value="{{$producto->nombre}}">
              </div>
 
              <div class="form-group">
                 <label for="title">Precio</label>
-               <input type="number" name="precio" id="precio">
+               <input type="number" name="precio" id="precio" value="{{$producto->precio}}">
             </div>
 
             <div class="form-group">
                 <label for="title">Categoria</label>
-               <input type="text" name="categoria" id="categoria" class="form-control" value="{{ $producto[1] }}">
+               <input type="text" name="categoria" id="categoria" class="form-control" value="{{$producto->categoria}}">
             </div>
 
             <div class="form-group">
                 <label for="title">Imagen</label>
-               <input type="text" name="imagen" id="imagen" class="form-control">
+               <input type="text" name="imagen" id="imagen" class="form-control" value="{{$producto->imagen}}">
             </div>
 
              <div class="form-group">
