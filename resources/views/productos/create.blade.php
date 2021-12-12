@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
 
@@ -10,6 +10,9 @@
           </div>
           <div class="card-body" style="padding:30px">
 
+            <form action="" method="post">
+
+                @csrf
 
              <div class="form-group">
                 <label for="title">Nombre</label>

@@ -25,9 +25,10 @@ Route::group(['prefix' => 'productos', 'middleware' => 'auth'], function () {
     Route::get('/show/{id}', [ProductoController::class, 'getShow']);
 
     Route::get('/edit/{id}', [ProductoController::class, 'getEdit']);
+    Route::put('/edit/{id}', [ProductoController::class, 'putEdit']);
 
     Route::get('/create', [ProductoController::class, 'getCreate']);
-    Route::put('/create', [ProductoController::class, 'getCreate']);
+    Route::post('/create', [ProductoController::class, 'postCreate']);
 });
 
 Auth::routes();
