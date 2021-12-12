@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Producto;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +17,30 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         self::seedProductos();
+        self::seedUsers();
         $this->command->info('Tabla catálogo inicializada con datos!');
+    }
+
+    private static function seedUsers()
+    {
+        User::truncate();
+        foreach( self::$arrayProductos as $producto ) {
+            $p = new User;
+            $p->name = "javier";
+            $p->nombre = "javier";
+            $p->apellidos = "murcia";
+            $p->email = "javier@gmail.com";
+            $p->password = bcrypt("javier12345");
+            $p->save();
+
+            $p2 = new User;
+            $p2->name = "javier2";
+            $p2->nombre = "javier2";
+            $p2->apellidos = "murcia2";
+            $p2->email = "javier2@gmail.com";
+            $p2->password = bcrypt("javier212345");
+            $p2->save();
+        }
     }
 
     private static function seedProductos()
@@ -28,7 +52,6 @@ class DatabaseSeeder extends Seeder
             $p->categoria = $producto[1];
             $p->save();
         }
-
     }
 
     private static $arrayProductos = array(

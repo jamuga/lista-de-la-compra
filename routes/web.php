@@ -18,7 +18,7 @@ use App\Http\Controllers\ProductoController;
 
 Route::get('/', [HomeController::class, 'getHome']);
 
-Route::group(['prefix' => 'productos'], function () {
+Route::group(['prefix' => 'productos', 'middleware' => 'auth'], function () {
 
     Route::get('/', [ProductoController::class, 'getIndex']);
 
@@ -29,3 +29,7 @@ Route::group(['prefix' => 'productos'], function () {
     Route::get('/create', [ProductoController::class, 'getCreate']);
     Route::put('/create', [ProductoController::class, 'getCreate']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
